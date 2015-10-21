@@ -49,6 +49,19 @@ class ItemFixture extends CakeTestFixture {
 			'missing_answer_percentage' => null
 		),
 		array(
+			'id' => 123,
+			'exam_id' => 747,
+			'order' => 1,
+			'second_version_order' => null,
+			'value' => '35',
+			'answer_option_count' => 4,
+			'correct_answer_count' => 16,
+			'correct_answer_percentage' => 18.4,
+			'correct_answer_irc' => -0.187,
+			'missing_answer_count' => 1,
+			'missing_answer_percentage' => 1.1
+		),
+		array(
 			'id' => 21773,
 			'exam_id' => 747,
 			'order' => 35,

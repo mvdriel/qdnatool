@@ -33,6 +33,46 @@ class AnswerOptionFixture extends CakeTestFixture {
  */
 	public $records = array(
 		array(
+			'id' => 1,
+			'item_id' => 123,
+			'order' => 1,
+			'value' => null,
+			'is_correct' => false,
+			'given_answer_count' => 23,
+			'given_answer_irc' => -0.161,
+			'given_answer_percentage' => 26.4
+		),
+		array(
+			'id' => 2,
+			'item_id' => 123,
+			'order' => 2,
+			'value' => null,
+			'is_correct' => true,
+			'given_answer_count' => 16,
+			'given_answer_irc' => -0.187,
+			'given_answer_percentage' => 18.4
+		),
+		array(
+			'id' => 3,
+			'item_id' => 123,
+			'order' => 3,
+			'value' => null,
+			'is_correct' => false,
+			'given_answer_count' => 21,
+			'given_answer_irc' => 0.262,
+			'given_answer_percentage' => 24.1
+		),
+		array(
+			'id' => 4,
+			'item_id' => 123,
+			'order' => 4,
+			'value' => null,
+			'is_correct' => false,
+			'given_answer_count' => 26,
+			'given_answer_irc' => 0.045,
+			'given_answer_percentage' => 29.9
+		),
+		array(
 			'id' => 99456,
 			'item_id' => 21773,
 			'order' => 1,

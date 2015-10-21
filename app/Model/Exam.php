@@ -3,6 +3,7 @@ define('EXAM_UPLOADS', TMP . 'uploads' . DS);
 define('EXAM_REPORTS', ROOT . DS . 'data' . DS . 'reports' . DS);
 App::uses('AuthComponent', 'Controller/Component');
 App::uses('Rserve', 'Lib');
+App::uses('Teleform', 'Lib');
 App::uses('CakeText', 'Utility');
 App::uses('ClassRegistry', 'Utility');
 App::uses('ExamFormat', 'Model');
@@ -84,6 +85,11 @@ class Exam extends AppModel {
 			'uploadError' => array(
 				'rule' => 'uploadError',
 				'message' => 'Something went wrong with the upload.'
+			),
+			'validateExamDataFile' => array(
+				'rule' => 'validateExamDataFile',
+				'message' => 'Please supply a valid data file.',
+				'last' => true
 			)
 		),
 		'mapping_file' => array(
@@ -201,7 +207,32 @@ class Exam extends AppModel {
 		return true;
 	}
 
-/**
+	public function validateExamDataFile($check) {
+		$valid = false;
+		$examFormatId = Hash::get($this->data, sprintf('%s.exam_format_id', $this->alias));
+		switch ($examFormatId) {
+			case ExamFormat::TELEFORM:
+				$valid = Teleform::validateDataFile($check);
+				break;
+			case ExamFormat::BLACKBOARD:
+				$valid = $this->_validateExamBlackboardDataFile($check);
+				break;
+			case ExamFormat::QMP:
+				$valid = $this->_validateExamQMPDataFile($check);
+				break;
+		}
+		return $valid;
+	}
+
+	protected function _validateExamBlackboardDataFile($check) {
+		return true;
+	}
+
+	protected function _validateExamQMPDataFile($check) {
+		return true;
+	}
+
+	/**
  * add method
  *
  * @param array $data Data
